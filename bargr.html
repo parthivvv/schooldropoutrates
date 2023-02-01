@@ -1,0 +1,120 @@
+<html>
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Dropout rate'],
+                ['2005', 25.420],
+                ['2006', 21.770],
+                ['2007', 26.750],
+                ['2008', 24.410],
+                ['2009', 25.850],
+                ['2010', 28.500],
+                ['2011', 25.390],
+                ['2012', 20.950],
+                ['2013', 19.400]
+            ]);
+
+            var options = {
+                title: 'Indian school dropout rates:6-11 yrs old girls from 1960-2013',
+                curveType: 'function',
+                legend: {
+                    position: 'bottom'
+                }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+<center>
+
+    <body>
+        <div style="padding-top: 90px;">
+            <div id="curve_chart" style="width: 1000px; height: 600px;"></div>
+        </div>
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-wrap">
+                            <table class="table" style="width: 50px;height: 50px;">
+                                <thead class="thead-primary">
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Dropout rates</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2005</td>
+                                        <td>25.420</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>2006</td>
+                                        <td>21.770</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>2007</td>
+                                        <td>26.750</td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>2008</td>
+                                        <td>24.410</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>2009</td>
+                                        <td>25.850</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>2010</td>
+                                        <td>28.500</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>2011</td>
+                                        <td>25.390</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2012</td>
+                                        <td>20.950</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td class="border-bottom-0">2013</td>
+                                        <td class="border-bottom-0">19.400</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <div style="position:relative; bottom:150px;">
+                        <a class="button button-primary button-block" style="position:relative; left: 475px; top:175px" href="html.html">Next</a><a class="button button-primary button-block" style="position:relative; left: 475px; top:180px" href="sss.html">Go Back</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </body>
+</center>
+
+</html>

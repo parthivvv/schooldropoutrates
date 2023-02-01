@@ -1,47 +1,65 @@
-
-
 <?php
+if (isset($_POST['submit'])) {
+    if (isset($_POST['userid']) && isset($_POST['statecode']) &&
+        isset($_POST['villageid']) && isset($_POST['gender']) &&
+        isset($_POST['age']) && isset($_POST['reason'])) {
+        
+        $userid = $_POST['userid'];
+        $statecode = $_POST['statecode'];
+        $villageid = $_POST['villageid'];
+        $gender = $_POST['gender'];
+        $age = $_POST['age'];
+        $reason = $_POST['reason'];
 
-// Connect to the database
-$host = 'localhost';
-$dbusername = 'root';
-$dbpassword = '';
-$dbname = 'project';
-$conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+        $host = "localhost";
+        $dbUsername = "root";
 
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
+        $dbPassword = "";
+        $dbName = "project";
+
+        $conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
+
+        if ($conn->connect_error) {
+            die('Could not connect to the database.');
+        }
+        else {
+            $Select = "SELECT userid FROM register WHERE userid = ? LIMIT 1";
+            $Insert = "INSERT INTO register(statecode, villageid, gender, age, reason) values(?, ?, ?, ?, ?)";
+
+            $stmt = $conn->prepare($Select);
+            $stmt->bind_param("s", $userid);
+            $stmt->execute();
+            $stmt->bind_result($userid);
+            $stmt->store_result();
+            $stmt->fetch();
+            $rnum = $stmt->num_rows;
+
+            if ($rnum == 0) {
+                $stmt->close();
+
+
+                
+                $stmt->bind_param("ssssis",$userid, $statecode, $villageid, $gender, $age, $reason);
+                if ($stmt->execute()) {
+                    echo "New record inserted sucessfully.";
+                }
+                else {
+                    echo $stmt->error;
+                }
+            }
+            else {
+                echo "Someone already registers using this user-id.";
+            }
+            $stmt->close();
+            $conn->close();
+        }
+    }
+    else {
+        echo "All field are required.";
+        die();
+    }
 }
-
-// Escape user input to prevent SQL injection
-$userid = mysqli_real_escape_string($conn, $_POST['userid']);
-$statecode = mysqli_real_escape_string($conn, $_POST['statecode']);
-$villageid = mysqli_real_escape_string($conn, $_POST['villageid']);
-$gender = mysqli_real_escape_string($conn, $_POST['gender']);
-$age = mysqli_real_escape_string($conn, $_POST['age']);
-$reason = mysqli_real_escape_string($conn, $_POST['reason']);
-
-// Insert the data into the database
-
-$sql = "INSERT INTO register (userid, statecode, villageid, gender, age, reason) VALUES ('$userid', '$statecode', '$villageid', '$gender', '$age', '$reason')";
-
-try
-{
-  if(mysqli_query($conn, $sql)) 
-  {
-    echo "New record created successfully";
-  }
-  else 
-  {
-    echo "Error: ";
-  } 
-} 
-catch (Exception $e) {
-  echo 'Caught exception: ';
+else {
+    echo "Submit button is not set";
 }
-
-// Close the connection
-mysqli_close($conn);
-
 ?>
