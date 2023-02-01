@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Update Form</title>
+</head>
+
+<body>
+    <form action="update.php" method="POST">
+        <table>
+            <tr>
+                <td>User Id</td>
+                <td><input type="text" name="userid" required></td>
+            </tr>
+            <tr>
+                <td>State Code</td>
+                <td><input type="text" name="statecode" required></td>
+            </tr>
+            <tr>
+                <td>Village ID</td>
+                <td><input type="text" name="villageid" required></td>
+            </tr>
+            <tr>
+                <td>Gender :</td>
+                <td>
+                    <input type="radio" name="gender" value="m" required>Male
+                    <input type="radio" name="gender" value="f" required>Female
+                </td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><input type="number" name="age" required></td>
+            </tr>
+            <tr>
+                <td>Reason :</td>
+                <td>
+                    <select name="reason" required>
+      <option selected hidden value="">Select Code</option>
+      <option value="977">IN977</option>
+      <option value="978">IN978</option>
+      <option value="979">IN979</option>
+      <option value="973">IN973</option>
+      <option value="972">IN972</option>
+      <option value="974">IN974</option>
+     </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit" name="submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

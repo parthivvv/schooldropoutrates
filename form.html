@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Register Form</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+
+<body>
+    <form action="insert.php" method="POST">
+        <table>
+            <tr>
+                <td>User Id</td>
+                <td><input type="text" name="userid" required></td>
+            </tr>
+            <tr>
+                <td>State Code</td>
+                <td><input type="text" name="statecode" required></td>
+            </tr>
+            <tr>
+                <td>Village ID</td>
+                <td><input type="text" name="villageid" required></td>
+            </tr>
+            <tr>
+                <td>Gender :</td>
+                <td>
+                    <input type="radio" name="gender" value="M" required>Male
+                    <input type="radio" name="gender" value="F" required>Female
+                </td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><input type="number" name="age" required></td>
+            </tr>
+            <tr>
+                <td>Reason :</td>
+                <td>
+                    <select name="reason" required>
+      <option selected hidden value="">Select Code</option>
+      <option value="977">IN977</option>
+      <option value="978">IN978</option>
+      <option value="979">IN979</option>
+      <option value="973">IN973</option>
+      <option value="972">IN972</option>
+      <option value="974">IN974</option>
+     </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit" name="submit"></td>
+
+            </tr>
+        </table>
+    </form>
+    <button style="
+                      border: none;
+                      border-radius: 4px;
+                      color: white;
+                      padding: 13px 32px;
+                      position: relative;
+                      left:800px;
+                      bottom:80px;
+                      text-align: center;
+                      text-decoration: none;
+                      display: inline-block;
+                      font-size: 16px;
+                      margin: 4px 2px;
+                      cursor: pointer;
+                      background-color: #4CAF50;" onclick="history.go(-1)">Go Back</button>
+
+</body>
+
+</html>
+
+<!--http://localhost/form/-->

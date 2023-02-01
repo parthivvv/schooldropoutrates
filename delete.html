@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>delete Form</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+
+<body>
+    <form action="delete.php" method="POST">
+        <table>
+            <tr>
+                <td>User Id</td>
+                <td><input type="text" name="userid" required></td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" value="delete" name="submit"></td>
+
+            </tr>
+        </table>
+    </form>
+    <button style="
+                      border: none;
+                      border-radius: 4px;
+                      color: white;
+                      padding: 13px 32px;
+                      position: relative;
+                      left:800px;
+                      bottom:80px;
+                      text-align: center;
+                      text-decoration: none;
+                      display: inline-block;
+                      font-size: 16px;
+                      margin: 4px 2px;
+                      cursor: pointer;
+                      background-color: #4CAF50;" onclick="history.go(-1)">Go Back</button>
+
+</body>
+
+</html>
+
+<!--http://localhost/form/-->
